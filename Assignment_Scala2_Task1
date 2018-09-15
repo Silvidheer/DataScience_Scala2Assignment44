@@ -1,0 +1,40 @@
+[acadgild@localhost ~]$ scala
+Welcome to Scala version 2.11.7 (Java HotSpot(TM) 64-Bit Server VM, Java 1.8.0_161).
+Type in expressions to have them evaluated.
+Type :help for more information.
+
+# Write a Scala application to find the Nth digit in the sequence.
+○ Write the function using standard for loop
+
+scala> def fib2( n : Int ) : Int = {
+     |   var a = 0
+     |   var b = 1
+     |   var i = 0  
+     |  
+     |   while( i < n ) {
+     |     val c = a + b
+     |     a = b
+     |     b = c
+     |     i = i + 1
+     |   } 
+     |   return a
+     | }
+fib2: (n: Int)Int
+
+scala> fib2(12)
+res0: Int = 144
+
+#Write a Scala application to find the Nth digit in the sequence.
+○ Write the function using recursion
+
+scala> def fib1( n : Int) : Int = n match {
+     |    case 0 | 1 => n
+     |    case _ => fib1( n-1 ) + fib1( n-2 )
+     | }
+fib1: (n: Int)Int
+
+scala> fib1(12)
+res1: Int = 144
+
+scala> 
+

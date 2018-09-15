@@ -1,0 +1,98 @@
+scala> [acadgild@localhost ~]$ scala
+Welcome to Scala version 2.11.7 (Java HotSpot(TM) 64-Bit Server VM, Java 1.8.0_161).
+Type in expressions to have them evaluated.
+Type :help for more information.
+
+1.Write a simple program to show inheritance in scala.
+
+scala>     class Employee{  
+     |         var salary:Float = 10000  
+     |     }  
+defined class Employee
+
+scala>       
+     |     class Programmer extends Employee{  
+     |         var bonus:Int = 5000  
+     |         println("Salary = "+salary)  
+     |         println("Bonus = "+bonus)  
+     |     }  
+defined class Programmer
+
+scala>       
+     |     object MainObject{  
+     |         def main(args:Array[String]){  
+     |             new Programmer()  
+     |         }  
+     |     }  
+defined object MainObject
+
+
+scala> class Person{
+     | var SSN:String="999-32-7869"
+     | }
+defined class Person
+
+scala> class Student extends Person{
+     | var enrolment_no:String="0812CS141028"
+     | println("SSN: "+SSN)
+     | println("Enrolment Number: "+enrolment_no)
+     | }
+defined class Student
+
+scala> new Student()
+SSN: 999-32-7869
+Enrolment Number: 0812CS141028
+res2: Student = Student@1fbc7afb
+
+scala> new Programmer()
+Salary = 10000.0
+Bonus = 5000
+res3: Programmer = Programmer@96532d6
+
+
+2.Write a simple program to show multiple inheritance in scala.
+
+scala> abstract class  Bird{
+     | def sound:String
+     | }
+defined class Bird
+
+scala> trait FlyingBird extends Bird{
+     | override def sound = "Flying Sound"
+     | def work () = { "Flying Flying"}
+     | }
+defined trait FlyingBird
+
+scala> trait RunningBird extends Bird{
+     | override def sound = "Running Sound"
+     | def run() = "Running Running"
+     | }
+defined trait RunningBird
+
+scala> class FlyingRunningBird extends FlyingBird  with RunningBird
+defined class FlyingRunningBird
+
+scala> var flyRunBird = new FlyingRunningBird
+flyRunBird: FlyingRunningBird = FlyingRunningBird@5649fd9b
+
+scala> flyRunBird.work
+res4: String = Flying Flying
+
+scala> flyRunBird.run
+res5: String = Running Running
+
+scala> class RunningFlyingBird extends RunningBird with FlyingBird
+defined class RunningFlyingBird
+
+scala> var runFlyBird = new RunningFlyingBird
+runFlyBird: RunningFlyingBird = RunningFlyingBird@133e16fd
+
+scala> run
+runFlyBird   runtime
+
+scala> runFlyBird.work
+res6: String = Flying Flying
+
+scala> runFlyBird.run
+res7: String = Running Running
+
