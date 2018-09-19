@@ -1,0 +1,25 @@
+scala> val addConstantTo: PartialFunction[(Int, Int), Int] = {
+     |     case (a, b) => a + b + 12345
+     | }
+addConstantTo: PartialFunction[(Int, Int),Int] = <function1>
+
+scala> addConstantTo(14,15)
+res1: Int = 12374
+
+scala> addConstantTo(12,34)
+res2: Int = 12391
+
+scala> val square: PartialFunction[Int, Int] = {
+     |     case x if x >= 0 => x * x
+     | }
+square: PartialFunction[Int,Int] = <function1>
+
+scala> square(2)
+res3: Int = 4
+
+scala> square(90
+     | )
+res4: Int = 8100
+
+scala> square(addConstantTo(12,34))
+res5: Int = 153536881
