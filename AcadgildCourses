@@ -1,0 +1,30 @@
+[acadgild@localhost ~]$ scala
+Welcome to Scala version 2.11.7 (Java HotSpot(TM) 64-Bit Server VM, Java 1.8.0_161).
+Type in expressions to have them evaluated.
+Type :help for more information.
+
+4.Write a program to print the prices of 4 courses of Acadgild: Android-12999,Big Data Development-17999,Big Data Development-17999,Spark-19999 using match and add a default condition if the user enters any other course                                   ^
+
+scala> val acadgildCourses: PartialFunction[String, Int] = {
+     |     case course: String if course == "Android" => 12999
+     |     case course: String if course == "Big Data" => 17999
+     |     case course: String if course == "Big Data2" => 17999
+     |     case course: String if course == "Spark" => 19999
+     | }
+acadgildCourses: PartialFunction[String,Int] = <function1>
+
+scala> val defaultCourse: PartialFunction[Any, Int] = {
+     |     case _ => 10999
+     | }
+defaultCourse: PartialFunction[Any,Int] = <function1>
+
+scala> val course = acadgildCourses.orElse(defaultCourse)
+course: PartialFunction[String,Int] = <function1>
+
+scala> course("Android")
+res0: Int = 12999
+
+scala> course("Java")
+res1: Int = 10999
+
+scala> 
